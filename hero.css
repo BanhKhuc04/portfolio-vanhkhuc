@@ -1,0 +1,982 @@
+/* =============================================
+   HERO PARALLAX — Immersive Layered Scene
+   vanhkhuc.dev
+   ============================================= */
+
+/* ---------- Fonts ---------- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* ---------- Theme Variables ---------- */
+:root {
+  /* Sky */
+  --sky-top: #ffffff;
+  --sky-mid: #e0f2fe;
+  --sky-bottom: #bae6fd;
+  --sky-horizon: #7dd3fc;
+
+  /* Mountains */
+  --mtn-far: rgba(147, 197, 253, 0.35);
+  --mtn-mid: rgba(96, 165, 250, 0.45);
+  --mtn-near: rgba(59, 130, 246, 0.35);
+
+  /* Fog */
+  --fog-color: rgba(255, 255, 255, 0.85);
+
+  /* Panels */
+  --panel-bg: rgba(255, 255, 255, 0.6);
+  --panel-border: rgba(255, 255, 255, 0.8);
+  --panel-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  --panel-code-bg: rgba(15, 23, 42, 0.92);
+
+  /* Text */
+  --hero-text: #0f172a;
+  --hero-subtext: #475569;
+
+  /* Atmosphere */
+  --cloud-color: rgba(255, 255, 255, 0.7);
+  --glow-color: rgba(59, 130, 246, 0.15);
+  --island-glow: rgba(59, 130, 246, 0.2);
+}
+
+[data-theme="dark"] {
+  --sky-top: #020617;
+  --sky-mid: #0B1E3A;
+  --sky-bottom: #0f172a;
+  --sky-horizon: #1e3a5f;
+
+  --mtn-far: rgba(30, 58, 138, 0.35);
+  --mtn-mid: rgba(30, 64, 175, 0.5);
+  --mtn-near: rgba(29, 78, 216, 0.4);
+
+  --fog-color: rgba(2, 6, 23, 0.85);
+
+  --panel-bg: rgba(15, 23, 42, 0.5);
+  --panel-border: rgba(59, 130, 246, 0.15);
+  --panel-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  --panel-code-bg: rgba(15, 23, 42, 0.95);
+
+  --hero-text: #f1f5f9;
+  --hero-subtext: #94a3b8;
+
+  --cloud-color: transparent;
+  --glow-color: rgba(59, 130, 246, 0.12);
+  --island-glow: rgba(59, 130, 246, 0.3);
+}
+
+/* =============================================
+   HERO CONTAINER
+   ============================================= */
+.hero-parallax {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 700px;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* =============================================
+   PARALLAX LAYER BASE
+   ============================================= */
+.parallax-layer {
+  position: absolute;
+  inset: 0;
+  will-change: transform;
+  pointer-events: none;
+}
+
+.parallax-layer > * {
+  pointer-events: auto;
+}
+
+/* =============================================
+   LAYER 1 — SKY GRADIENT
+   ============================================= */
+.sky-layer {
+  z-index: 1;
+  background: linear-gradient(
+    180deg,
+    var(--sky-top) 0%,
+    var(--sky-mid) 35%,
+    var(--sky-bottom) 65%,
+    var(--sky-horizon) 100%
+  );
+  transition: background 0.8s ease;
+}
+
+/* =============================================
+   LAYER 2 — ATMOSPHERE (Clouds + Stars)
+   ============================================= */
+.atmosphere-layer {
+  z-index: 2;
+}
+
+/* --- Clouds (Light Mode) --- */
+.cloud {
+  position: absolute;
+  background: var(--cloud-color);
+  border-radius: 100px;
+  filter: blur(30px);
+  opacity: 0.7;
+  transition: opacity 0.8s ease;
+}
+
+[data-theme="dark"] .cloud {
+  opacity: 0;
+}
+
+.cloud::before,
+.cloud::after {
+  content: '';
+  position: absolute;
+  background: inherit;
+  border-radius: inherit;
+  filter: inherit;
+}
+
+.cloud-1 {
+  width: 350px;
+  height: 80px;
+  top: 12%;
+  left: -5%;
+  animation: cloud-drift 45s linear infinite;
+}
+.cloud-1::before {
+  width: 180px;
+  height: 60px;
+  top: -25px;
+  left: 60px;
+}
+.cloud-1::after {
+  width: 120px;
+  height: 50px;
+  top: -15px;
+  left: 170px;
+}
+
+.cloud-2 {
+  width: 280px;
+  height: 60px;
+  top: 8%;
+  right: 10%;
+  opacity: 0.5;
+  animation: cloud-drift 55s linear infinite;
+  animation-delay: -15s;
+}
+.cloud-2::before {
+  width: 140px;
+  height: 50px;
+  top: -20px;
+  left: 50px;
+}
+
+.cloud-3 {
+  width: 200px;
+  height: 55px;
+  top: 22%;
+  left: 30%;
+  opacity: 0.4;
+  animation: cloud-drift 60s linear infinite;
+  animation-delay: -30s;
+}
+
+.cloud-4 {
+  width: 320px;
+  height: 70px;
+  top: 18%;
+  right: -10%;
+  opacity: 0.45;
+  animation: cloud-drift 50s linear infinite;
+  animation-delay: -8s;
+}
+.cloud-4::before {
+  width: 160px;
+  height: 55px;
+  top: -22px;
+  left: 80px;
+}
+
+.cloud-5 {
+  width: 240px;
+  height: 50px;
+  top: 6%;
+  left: 55%;
+  opacity: 0.35;
+  animation: cloud-drift 65s linear infinite;
+  animation-delay: -20s;
+}
+
+@keyframes cloud-drift {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(120vw); }
+}
+
+/* --- Stars Canvas (Dark Mode) --- */
+.stars-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+[data-theme="dark"] .stars-canvas {
+  opacity: 1;
+}
+
+/* --- Shooting Star --- */
+.shooting-star {
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.9), transparent);
+  border-radius: 2px;
+  opacity: 0;
+  z-index: 3;
+  filter: blur(0.5px);
+}
+
+.shooting-star.active {
+  animation: shoot 1.2s ease-out forwards;
+}
+
+@keyframes shoot {
+  0% {
+    width: 0;
+    opacity: 1;
+    transform: translate(0, 0) rotate(-35deg);
+  }
+  30% {
+    width: 120px;
+    opacity: 1;
+  }
+  100% {
+    width: 0;
+    opacity: 0;
+    transform: translate(-350px, 250px) rotate(-35deg);
+  }
+}
+
+/* =============================================
+   LAYER 3 — MOUNTAINS (3 Depth Layers)
+   ============================================= */
+.mountains-far,
+.mountains-mid,
+.mountains-near {
+  bottom: 0;
+  top: auto;
+}
+
+.mountains-far {
+  z-index: 3;
+  height: 45%;
+}
+
+.mountains-mid {
+  z-index: 4;
+  height: 40%;
+}
+
+.mountains-near {
+  z-index: 5;
+  height: 35%;
+}
+
+.mountain-svg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.mountains-far .mountain-svg {
+  opacity: 0.6;
+}
+
+.mountains-mid .mountain-svg {
+  opacity: 0.75;
+}
+
+.mountains-near .mountain-svg {
+  opacity: 0.85;
+}
+
+/* =============================================
+   LAYER 4 — MAIN SCENE (Island + Developer)
+   ============================================= */
+.scene-layer {
+  z-index: 7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.floating-island-wrapper {
+  position: absolute;
+  bottom: 0%; /* Push island further down */
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.island-character {
+  width: 320px;
+  height: 320px;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid rgba(255, 255, 255, 0.1);
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.2));
+  animation: float-gentle 6s ease-in-out infinite;
+  position: relative;
+  z-index: 2;
+  mask-image: radial-gradient(
+    circle at 50% 50%,
+    black 60%,
+    transparent 100%
+  );
+  -webkit-mask-image: radial-gradient(
+    circle at 50% 50%,
+    black 60%,
+    transparent 100%
+  );
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.4s ease;
+}
+
+.island-character:hover {
+  transform: translateX(-50%) scale(1.05) rotate(2deg);
+  filter: drop-shadow(0 25px 50px rgba(37, 99, 235, 0.3));
+}
+
+[data-theme="dark"] .island-character {
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.4))
+          brightness(0.85) contrast(1.15) saturate(1.2);
+}
+
+.island-glow {
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 280px;
+  height: 60px;
+  background: radial-gradient(ellipse, var(--island-glow) 0%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(20px);
+  animation: glow-pulse 4s ease-in-out infinite;
+  z-index: 1;
+}
+
+@keyframes float-gentle {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(-14px); }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.6; transform: translateX(-50%) scale(1); }
+  50% { opacity: 1; transform: translateX(-50%) scale(1.1); }
+}
+
+/* =============================================
+   LAYER 5 — FLOATING UI PANELS
+   ============================================= */
+.panels-layer {
+  z-index: 8;
+}
+
+.float-panel {
+  position: absolute;
+  border-radius: 12px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: var(--panel-shadow);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.float-panel:hover {
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.15);
+}
+
+/* --- Code Editor Panel --- */
+.panel-code {
+  background: var(--panel-code-bg);
+  border: 1px solid rgba(59, 130, 246, 0.1);
+  width: 240px;
+  left: calc(50% - 520px); /* Push further left */
+  top: 35%;
+  animation: float-panel-1 7s ease-in-out infinite;
+  opacity: 0.95;
+}
+
+.panel-titlebar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.panel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.panel-dot.red { background: #ef4444; }
+.panel-dot.yellow { background: #f59e0b; }
+.panel-dot.green { background: #22c55e; }
+
+.panel-tab {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.4);
+  margin-left: auto;
+}
+
+.panel-code-body {
+  padding: 12px 14px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+.code-line {
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.code-keyword { color: #c084fc; }
+.code-fn { color: #60a5fa; }
+.code-string { color: #34d399; }
+.code-comment { color: rgba(148, 163, 184, 0.5); }
+.code-var { color: #f9a8d4; }
+.code-bracket { color: rgba(255, 255, 255, 0.3); }
+.code-text { color: rgba(255, 255, 255, 0.7); }
+.code-indent { padding-left: 16px; display: block; }
+
+/* --- Dashboard Panel --- */
+.panel-dashboard {
+  background: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+  width: 190px;
+  padding: 18px;
+  right: calc(50% - 500px); /* Push further right */
+  top: 24%;
+  animation: float-panel-2 8s ease-in-out infinite;
+}
+
+[data-theme="dark"] .panel-dashboard {
+  border-color: rgba(59, 130, 246, 0.15);
+}
+
+.dash-label {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--hero-subtext);
+  margin-bottom: 6px;
+}
+
+.dash-number {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--hero-text);
+  letter-spacing: -0.03em;
+  margin-bottom: 8px;
+  line-height: 1;
+}
+
+.dash-chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  height: 40px;
+  margin-bottom: 10px;
+}
+
+.dash-bar {
+  flex: 1;
+  background: linear-gradient(180deg, #3b82f6, #0ea5e9);
+  border-radius: 3px 3px 0 0;
+  min-height: 6px;
+  transition: height 0.3s ease;
+}
+
+[data-theme="dark"] .dash-bar {
+  background: linear-gradient(180deg, #2563eb, #60a5fa);
+}
+
+.dash-trend {
+  font-size: 12px;
+  font-weight: 600;
+  color: #22c55e;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.dash-trend svg {
+  width: 12px;
+  height: 12px;
+}
+
+/* --- Terminal Panel --- */
+.panel-terminal {
+  background: var(--panel-code-bg);
+  border: 1px solid rgba(59, 130, 246, 0.08);
+  width: 220px;
+  right: calc(50% - 480px);
+  top: 58%;
+  animation: float-panel-3 9s ease-in-out infinite;
+}
+
+.terminal-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.terminal-body {
+  padding: 10px 14px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px;
+  line-height: 1.8;
+}
+
+.term-prompt { color: #22c55e; }
+.term-cmd { color: rgba(255, 255, 255, 0.7); }
+.term-success { color: #34d399; }
+.term-info { color: rgba(148, 163, 184, 0.5); }
+.term-check::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #22c55e;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
+/* --- Panel Floating Animations --- */
+@keyframes float-panel-1 {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-18px) rotate(-1deg); }
+}
+
+@keyframes float-panel-2 {
+  0%, 100% { transform: translateY(0) rotate(1.5deg); }
+  50% { transform: translateY(-12px) rotate(2.5deg); }
+}
+
+@keyframes float-panel-3 {
+  0%, 100% { transform: translateY(0) rotate(1deg); }
+  50% { transform: translateY(-15px) rotate(0deg); }
+}
+
+/* =============================================
+   LAYER 6 — FOREGROUND FOG
+   ============================================= */
+.foreground-layer {
+  z-index: 9;
+  bottom: -100px; /* Increased buffer */
+  top: auto;
+  height: calc(30% + 100px); /* Adjust height to match buffer */
+}
+
+.fog {
+  position: absolute;
+  bottom: -100px; /* Increased buffer to hide gaps */
+  width: 120%;
+  height: 100%;
+  left: -10%;
+}
+
+.fog-left {
+  background: radial-gradient(
+    ellipse at 20% 100%,
+    var(--fog-color) 0%,
+    transparent 60%
+  );
+  filter: blur(40px);
+  animation: fog-drift-left 30s ease-in-out infinite alternate;
+}
+
+.fog-right {
+  background: radial-gradient(
+    ellipse at 80% 100%,
+    var(--fog-color) 0%,
+    transparent 60%
+  );
+  filter: blur(40px);
+  animation: fog-drift-right 35s ease-in-out infinite alternate;
+}
+
+.fog-center {
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    var(--fog-color) 70%,
+    var(--fog-color) 100%
+  );
+  filter: blur(20px);
+  bottom: -30px;
+}
+
+@keyframes fog-drift-left {
+  0% { transform: translateX(-3%); opacity: 0.8; }
+  100% { transform: translateX(5%); opacity: 1; }
+}
+
+@keyframes fog-drift-right {
+  0% { transform: translateX(3%); opacity: 0.9; }
+  100% { transform: translateX(-4%); opacity: 0.7; }
+}
+
+/* =============================================
+   LAYER 7 — UI OVERLAY (Text + CTA)
+   ============================================= */
+.ui-layer {
+  z-index: 10;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 100px; /* Precise fixed padding for stability */
+  height: auto;
+}
+
+.hero-text-container {
+  text-align: center;
+  max-width: 800px;
+  padding: 0 24px;
+  margin-top: 0;
+  position: relative;
+  z-index: 20; /* Ensure text is above everything */
+}
+
+.hero-headline {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(2.2rem, 5.5vw, 4rem);
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  color: var(--hero-text);
+  margin-bottom: 20px;
+  transition: color 0.6s ease;
+}
+
+.hero-headline .line-accent {
+  background: linear-gradient(135deg, #2563eb, #0ea5e9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-subtext {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  font-weight: 400;
+  color: var(--hero-subtext);
+  line-height: 1.7;
+  max-width: 480px;
+  margin: 0 auto 32px;
+  transition: color 0.6s ease;
+}
+
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 32px;
+  background: linear-gradient(135deg, #2563eb, #0ea5e9);
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 50px;
+  box-shadow: 0 4px 20px rgba(37, 99, 235, 0.35);
+  transition: all 0.3s ease;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #0ea5e9, #2563eb);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.hero-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(37, 99, 235, 0.4);
+}
+
+.hero-cta:hover::before {
+  opacity: 1;
+}
+
+.hero-cta span,
+.hero-cta svg {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-cta svg {
+  width: 18px;
+  height: 18px;
+  transition: transform 0.3s ease;
+}
+
+.hero-cta:hover svg {
+  transform: translateX(3px);
+}
+
+/* =============================================
+   SCROLL INDICATOR
+   ============================================= */
+.scroll-indicator {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 11;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  opacity: 0.5;
+  animation: fade-bounce 3s ease-in-out infinite;
+}
+
+.scroll-indicator-text {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--hero-subtext);
+}
+
+.scroll-indicator-line {
+  width: 1px;
+  height: 30px;
+  background: linear-gradient(180deg, var(--hero-subtext), transparent);
+  animation: scroll-line 2s ease-in-out infinite;
+}
+
+@keyframes fade-bounce {
+  0%, 100% { opacity: 0.5; transform: translateX(-50%) translateY(0); }
+  50% { opacity: 0.8; transform: translateX(-50%) translateY(-5px); }
+}
+
+@keyframes scroll-line {
+  0% { transform: scaleY(0); transform-origin: top; }
+  50% { transform: scaleY(1); transform-origin: top; }
+  51% { transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+
+/* =============================================
+   THEME TOGGLE
+   ============================================= */
+.theme-toggle {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: transparent;
+  border: 1px solid var(--border-default, #e5e5e5);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.theme-toggle:hover {
+  background: var(--gray-100, #f5f5f5);
+  border-color: var(--gray-300, #d4d4d4);
+}
+
+[data-theme="dark"] .theme-toggle {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .theme-toggle:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.theme-toggle .icon-sun,
+.theme-toggle .icon-moon {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.theme-toggle .icon-sun {
+  color: #f59e0b;
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+.theme-toggle .icon-moon {
+  color: #6366f1;
+  opacity: 0;
+  transform: rotate(-90deg) scale(0.5);
+}
+
+[data-theme="dark"] .theme-toggle .icon-sun {
+  opacity: 0;
+  transform: rotate(90deg) scale(0.5);
+}
+
+[data-theme="dark"] .theme-toggle .icon-moon {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+/* =============================================
+   HERO → CONTENT TRANSITION
+   ============================================= */
+.hero-transition {
+  position: relative;
+  height: 120px;
+  margin-top: -60px;
+  z-index: 10;
+  background: linear-gradient(180deg, transparent, var(--surface-primary, #fff));
+  pointer-events: none;
+}
+
+[data-theme="dark"] .hero-transition {
+  background: linear-gradient(180deg, transparent, #0f172a);
+}
+
+/* =============================================
+   REDUCED MOTION
+   ============================================= */
+@media (prefers-reduced-motion: reduce) {
+  .cloud,
+  .island-character,
+  .island-glow,
+  .float-panel,
+  .fog,
+  .scroll-indicator,
+  .shooting-star {
+    animation: none !important;
+  }
+
+  .parallax-layer {
+    will-change: auto;
+  }
+}
+
+/* =============================================
+   RESPONSIVE
+   ============================================= */
+@media (max-width: 1200px) {
+  .panel-code {
+    left: calc(50% - 340px);
+  }
+  .panel-dashboard {
+    right: calc(50% - 330px);
+  }
+  .panel-terminal {
+    right: calc(50% - 360px);
+  }
+}
+
+@media (max-width: 1024px) {
+  .float-panel {
+    transform: scale(0.85);
+  }
+
+  .panel-code {
+    left: 5%;
+    top: 35%;
+  }
+  .panel-dashboard {
+    right: 5%;
+    top: 30%;
+  }
+  .panel-terminal {
+    right: 8%;
+    top: 58%;
+  }
+
+  .island-character {
+    width: 280px;
+  }
+
+  .floating-island-wrapper {
+    bottom: 18%;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-parallax {
+    min-height: 100vh;
+  }
+
+  .float-panel {
+    display: none;
+  }
+
+  .island-character {
+    width: 220px;
+  }
+
+  .floating-island-wrapper {
+    bottom: 15%;
+  }
+
+  .ui-layer {
+    padding-top: calc(var(--nav-height, 64px) + 40px);
+  }
+
+  .hero-headline {
+    font-size: 2rem;
+  }
+
+  .mountains-far {
+    height: 35%;
+  }
+  .mountains-mid {
+    height: 30%;
+  }
+  .mountains-near {
+    height: 25%;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-headline {
+    font-size: 1.75rem;
+  }
+
+  .hero-subtext {
+    font-size: 0.95rem;
+  }
+
+  .island-character {
+    width: 180px;
+  }
+
+  .hero-cta {
+    padding: 12px 24px;
+    font-size: 0.9rem;
+  }
+}

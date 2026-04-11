@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>System Panel</title>
+  <link rel="stylesheet" href="admin.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚙️</text></svg>">
+</head>
+<body>
+
+  <!-- ============================
+       LOGIN OVERLAY
+       ============================ -->
+  <div class="login-overlay" id="loginOverlay">
+    <div class="login-card">
+      <div class="login-logo">vanhkhuc<span>.panel</span></div>
+      <p class="login-subtitle">Enter your credentials to continue</p>
+      <form id="loginForm">
+        <div class="login-field">
+          <svg class="login-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
+          </svg>
+          <input type="password" id="loginPassword" placeholder="Password" autocomplete="current-password" autofocus />
+        </div>
+        <button type="submit" class="login-btn">Access Panel</button>
+        <p class="login-error" id="loginError">Invalid password. Try again.</p>
+      </form>
+    </div>
+  </div>
+
+  <!-- ============================
+       ADMIN APP
+       ============================ -->
+  <div class="admin-app" id="adminApp">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">vanhkhuc<span>.dev</span> <span class="sidebar-badge">Admin</span></div>
+      </div>
+      <nav class="sidebar-nav">
+        <div class="sidebar-section-label">Content</div>
+        <a href="#" class="sidebar-link active" data-section="hero">
+          <span class="sidebar-emoji">🏠</span> Hero Section
+        </a>
+        <a href="#" class="sidebar-link" data-section="stats">
+          <span class="sidebar-emoji">📊</span> Stats
+        </a>
+        <a href="#" class="sidebar-link" data-section="about">
+          <span class="sidebar-emoji">👤</span> About
+        </a>
+        <a href="#" class="sidebar-link" data-section="projects">
+          <span class="sidebar-emoji">💼</span> Projects
+        </a>
+        <a href="#" class="sidebar-link" data-section="tools">
+          <span class="sidebar-emoji">🔧</span> Tools
+        </a>
+        <a href="#" class="sidebar-link" data-section="blog">
+          <span class="sidebar-emoji">📝</span> Blog
+        </a>
+        <a href="#" class="sidebar-link" data-section="cta">
+          <span class="sidebar-emoji">📞</span> CTA & Social
+        </a>
+
+        <div class="sidebar-section-label">Data</div>
+        <a href="#" class="sidebar-link" id="btnExport">
+          <span class="sidebar-emoji">📤</span> Export JSON
+        </a>
+        <a href="#" class="sidebar-link" id="btnImport">
+          <span class="sidebar-emoji">📥</span> Import JSON
+        </a>
+        <a href="#" class="sidebar-link" id="btnReset">
+          <span class="sidebar-emoji">🔄</span> Reset Defaults
+        </a>
+      </nav>
+      <div class="sidebar-footer">
+        <button class="sidebar-footer-btn" id="btnLogout">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15m3 0 3-3m0 0-3-3m3 3H9" />
+          </svg>
+          Sign Out
+        </button>
+      </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+      <header class="main-header">
+        <h1 class="main-header-title" id="mainHeaderTitle">Hero Section</h1>
+        <div class="main-header-actions">
+          <button class="btn btn-secondary" id="btnPreview">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" /></svg>
+            Preview
+          </button>
+          <button class="btn btn-primary" id="btnSave">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 3.75H6.912a2.25 2.25 0 0 0-2.15 1.588L2.35 13.177a2.25 2.25 0 0 0-.1.661V18a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18v-4.162c0-.224-.034-.447-.1-.661L19.24 5.338a2.25 2.25 0 0 0-2.15-1.588H15M2.25 13.5h3.86a2.25 2.25 0 0 1 2.012 1.244l.256.512a2.25 2.25 0 0 0 2.013 1.244h3.218a2.25 2.25 0 0 0 2.013-1.244l.256-.512a2.25 2.25 0 0 1 2.013-1.244h3.859M12 3v8.25m0 0-3-3m3 3 3-3" /></svg>
+            Save Changes
+          </button>
+        </div>
+      </header>
+
+      <div class="main-body">
+        <!-- Dashboard quick stats -->
+        <div class="dash-stats">
+          <div class="dash-stat-card">
+            <div class="dash-stat-label">Projects</div>
+            <div class="dash-stat-value" id="dashStatProjects">3</div>
+          </div>
+          <div class="dash-stat-card">
+            <div class="dash-stat-label">Tools</div>
+            <div class="dash-stat-value" id="dashStatTools">6</div>
+          </div>
+          <div class="dash-stat-card">
+            <div class="dash-stat-label">Blog Posts</div>
+            <div class="dash-stat-value" id="dashStatBlog">4</div>
+          </div>
+          <div class="dash-stat-card">
+            <div class="dash-stat-label">Stats</div>
+            <div class="dash-stat-value" id="dashStatStats">4</div>
+          </div>
+        </div>
+
+        <!-- Dynamic section content -->
+        <div id="sectionContent"></div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Toast container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script src="admin.js"></script>
+</body>
+</html>
