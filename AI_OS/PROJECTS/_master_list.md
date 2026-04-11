@@ -15,17 +15,16 @@
 | Status | 🟡 In Progress |
 | Stack | Next.js 15, Tailwind, Supabase, Prisma, Framer Motion |
 | Repo | github.com/BanhKhuc04/pofolio-vanhkhuc |
-| Timeline | 2 tuần |
 
 ### Milestones
 
-#### M1: Foundation (Day 1-2) ⭐⭐
-- [ ] TASK-001: Init Next.js + Tailwind + Shadcn — 2h
-- [ ] TASK-002: Setup Supabase + Prisma schema — 1.5h
-- [ ] TASK-003: Design System (colors, fonts, spacing tokens) — 1h
+#### M1: Foundation ⭐⭐
+- [x] TASK-001: Init Next.js + Tailwind + Shadcn — 2h
+- [x] TASK-002: Setup Supabase + Prisma schema — 1.5h
+- [x] TASK-003: Design System (colors, fonts, spacing tokens) — 1h
 - [ ] TASK-004: Layout component (Nav + Footer) — 2h
 
-#### M2: Homepage "3-Second" (Day 3-5) ⭐⭐⭐
+#### M2: Homepage "3-Second" ⭐⭐⭐
 - [ ] TASK-005: Hero Section (headline + subtle parallax + CTA) — 3h
 - [ ] TASK-006: Featured Projects Grid (Bento layout) — 3h
 - [ ] TASK-007: Skills & Tech Stack Showcase — 2h
@@ -33,13 +32,13 @@
 - [ ] TASK-009: Journey / Timeline section — 2h
 - [ ] TASK-010: CTA "Hire me" + Contact section — 1.5h
 
-#### M3: Dynamic Content (Day 6-7) ⭐⭐⭐
+#### M3: Dynamic Content ⭐⭐⭐
 - [ ] TASK-011: Project detail pages (SSR + dynamic routes) — 3h
 - [ ] TASK-012: Blog listing + MDX rendering — 4h
 - [ ] TASK-013: i18n (EN/VI) migration — 2h
 - [ ] TASK-014: Dark/Light mode with system preference — 1h
 
-#### M4: Polish & SEO (Day 8-9) ⭐⭐
+#### M4: Polish & SEO ⭐⭐
 - [ ] TASK-015: Framer Motion animations (scroll reveal, hover) — 3h
 - [ ] TASK-016: SEO metadata + Open Graph + Sitemap — 2h
 - [ ] TASK-017: Performance audit + Lighthouse 95+ — 2h
@@ -56,23 +55,22 @@
 | Priority | 🔴 Critical |
 | Status | ⬜ Backlog |
 | Stack | Next.js (App Router), Supabase Auth, Server Actions |
-| Timeline | 1.5 tuần |
 
 ### Milestones
 
-#### M1: Auth + Layout (Day 1) ⭐⭐
+#### M1: Auth + Layout ⭐⭐
 - [ ] TASK-019: Supabase Auth (email/password) — 2h
 - [ ] TASK-020: Admin layout (sidebar + header + content area) — 3h
 - [ ] TASK-021: Dashboard overview (stats cards) — 2h
 
-#### M2: Content CRUD (Day 2-4) ⭐⭐⭐
+#### M2: Content CRUD ⭐⭐⭐
 - [ ] TASK-022: Project Manager (create/edit/delete/reorder) — 4h
 - [ ] TASK-023: Blog Manager (markdown editor + preview) — 4h
 - [ ] TASK-024: Skills Manager — 2h
 - [ ] TASK-025: Timeline/Experience Manager — 2h
 - [ ] TASK-026: Media Upload (Supabase Storage + drag/drop) — 3h
 
-#### M3: Advanced (Day 5-6) ⭐⭐⭐⭐
+#### M3: Advanced ⭐⭐⭐⭐
 - [ ] TASK-027: SEO Manager (meta tags per page) — 2h
 - [ ] TASK-028: Theme Control (colors, fonts live preview) — 2h
 - [ ] TASK-029: Export/Import content (JSON backup) — 1h
@@ -89,21 +87,20 @@
 | Priority | 🟠 High |
 | Status | ⬜ Backlog |
 | Stack | Vercel AI SDK, Groq/OpenAI, Supabase (context store) |
-| Timeline | 1 tuần |
 
 ### Milestones
 
-#### M1: Core Chat (Day 1-2) ⭐⭐⭐
+#### M1: Core Chat ⭐⭐⭐
 - [ ] TASK-031: API route `/api/chat/recruiter` — 3h
 - [ ] TASK-032: System prompt engineering (train trên data portfolio) — 2h
 - [ ] TASK-033: Chat UI component (floating bubble + panel) — 3h
 
-#### M2: Intelligence (Day 3-4) ⭐⭐⭐⭐
+#### M2: Intelligence ⭐⭐⭐⭐
 - [ ] TASK-034: RAG pipeline (embed project descriptions) — 4h
 - [ ] TASK-035: Context-aware responses (biết đang xem project nào) — 2h
 - [ ] TASK-036: Conversation logging to Supabase — 1h
 
-#### M3: Admin Integration (Day 5) ⭐⭐
+#### M3: Admin Integration ⭐⭐
 - [ ] TASK-037: Admin panel: xem chat logs — 2h
 - [ ] TASK-038: Admin panel: edit system prompt — 1h
 - [ ] TASK-039: Analytics: câu hỏi phổ biến nhất — 2h
@@ -119,7 +116,6 @@
 | Priority | 🟡 Medium |
 | Status | ⬜ Backlog |
 | Stack | Next.js, Supabase, Stripe (optional), Prisma |
-| Timeline | 2 tuần |
 
 ### Ideas (chọn 1):
 - **MicroSaaS**: URL Shortener với analytics
@@ -144,7 +140,6 @@
 | Priority | 🟢 Low (nhưng high impact) |
 | Status | ⬜ Backlog |
 | Stack | Markdown, GitHub Actions |
-| Timeline | 1 ngày |
 
 ### Tasks
 - [ ] TASK-045: README.md profile (bio + stats + featured projects) — 2h
@@ -158,21 +153,23 @@
 
 | Project | Total Tasks | Done | Progress |
 |---------|------------|------|----------|
-| Portfolio HQ | 18 | 0 | 0% |
+| Portfolio HQ | 18 | 3 | 17% |
 | Admin CMS | 12 | 0 | 0% |
 | AI Recruiter | 9 | 0 | 0% |
 | SaaS Demo | 5 | 0 | 0% |
 | GitHub Branding | 4 | 0 | 0% |
-| **TOTAL** | **48** | **0** | **0%** |
+| **TOTAL** | **48** | **3** | **6%** |
 
 ---
 
-## 🚀 Execution Order (What to build first)
+## 🚀 Execution Order (Làm lần lượt theo thứ tự)
+
+> Không gán ngày cụ thể. Làm xong milestone trước → chuyển sang milestone tiếp theo.
 
 ```
-Portfolio HQ M1 (Foundation)
+Portfolio HQ M1 (Foundation)         ← [x] DONE
     ↓
-Portfolio HQ M2 (Homepage)
+Portfolio HQ M2 (Homepage)           ← [ ] NEXT
     ↓
 Admin CMS M1 (Auth + Layout)
     ↓
