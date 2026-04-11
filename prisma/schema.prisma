@@ -1,0 +1,65 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Project {
+  id              String   @id @default(uuid())
+  titleEn         String
+  titleVi         String
+  descriptionEn   String
+  descriptionVi   String
+  imageUrl        String?
+  githubUrl       String?
+  liveUrl         String?
+  tags            String[]
+  featured        Boolean  @default(false)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model Skill {
+  id        String   @id @default(uuid())
+  name      String
+  icon      String?
+  category  String   // e.g., "Frontend", "Backend", "Tools"
+  level     Int      @default(0) // 0-100
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Experience {
+  id            String    @id @default(uuid())
+  titleEn       String
+  titleVi       String
+  company       String
+  descriptionEn String
+  descriptionVi String
+  startDate     DateTime
+  endDate       DateTime?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
+
+model BlogPost {
+  id              String   @id @default(uuid())
+  slug            String   @unique
+  titleEn         String
+  titleVi         String
+  summaryEn       String
+  summaryVi       String
+  contentEn       String
+  contentVi       String
+  published       Boolean  @default(false)
+  publishedAt     DateTime?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
