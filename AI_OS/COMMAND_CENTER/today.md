@@ -4,8 +4,8 @@
 
 | # | Task | Project | Est. | Status |
 |---|------|---------|------|--------|
-| 1 | Init Next.js + Tailwind + Shadcn | Portfolio HQ | 2h | [/] |
-| 2 | Setup Supabase + Prisma schema | Portfolio HQ | 1.5h | ⬜ |
+| 1 | Init Next.js + Tailwind + Shadcn | Portfolio HQ | 2h | [x] |
+| 2 | Setup Supabase + Prisma schema | Portfolio HQ | 1.5h | [/] |
 | 3 | Design System tokens | Portfolio HQ | 1h | ⬜ |
 
 ## 🔥 Focus Note
