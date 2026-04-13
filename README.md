@@ -1,36 +1,78 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🛰️ Portfolio HQ — vanhkhuc.dev
 
-## Getting Started
+![Build Status](https://img.shields.io/badge/status-production--ready-success?style=for-the-badge)
+![Next.js](https://img.shields.io/badge/Next.js-15-black?style=for-the-badge&logo=next.js)
+![AI_OS](https://img.shields.io/badge/Powered_by-AI_OS-blueviolet?style=for-the-badge)
 
-First, run the development server:
+A high-performance, AI-integrated personal branding ecosystem and command center. Built to demonstrate advanced fullstack capabilities, system observability, and autonomous AI agent integration.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+## 🏗️ Architecture
+
+```mermaid
+graph TD
+    User((User)) -->|Navigates| Portfolio[Next.js Portfolio]
+    Admin((You)) -->|Manages| CMS[Admin Command Center]
+    
+    Portfolio -->|Chat| AI[AI Recruiter Bot]
+    AI -->|Fetch Context| DB[(Supabase / Prisma)]
+    
+    CMS -->|Manage Data| DB
+    CMS -->|Audit| Logs[Activity Logs]
+    
+    Portfolio -->|SEO| Meta[SEO Metadata Manager]
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ✨ Key Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **AI Recruiter Bot**: A context-aware agent trained on my career data using RAG (Retrieval-Augmented Generation).
+- **Admin Command Center**: Full CRUD for Projects, Blogs, Skills, and Experience with built-in Media Upload (Supabase Storage).
+- **System Observability**: Integrated Activity Logging to track all system changes.
+- **Advanced SEO**: Dynamic metadata management for every page.
+- **Premium UX**: Framer Motion animations, Bento-style layouts, and professional aesthetic.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🛠️ Tech Stack
 
-## Learn More
+- **Framework**: Next.js 15 (App Router)
+- **Database**: PostgreSQL (Supabase)
+- **ORM**: Prisma 7
+- **AI**: Vercel AI SDK + Google Gemini 1.5 Flash
+- **Styling**: Tailwind CSS + Framer Motion
+- **Language**: TypeScript
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🚀 Development
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Prerequisites
+- [Node.js 20+](https://nodejs.org/)
+- [Supabase](https://supabase.com/) account for Database & Storage
 
-## Deploy on Vercel
+### Setup
+1. Clone the repository
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Initialize Database:
+   ```bash
+   npx prisma migrate dev
+   npx prisma generate
+   ```
+4. Run development server:
+   ```bash
+   npm run dev
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📄 License
+
+This project is open-source and available under the MIT License.
+
+---
+
+<p align="center">
+  Built with ❤️ by <a href="https://vanhkhuc.dev">BanhKhuc04</a>
+</p>

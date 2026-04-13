@@ -18,31 +18,31 @@
 
 ### Milestones
 
-#### M1: Foundation ⭐⭐
+#### M1: Foundation ⭐⭐ ✅
 - [x] TASK-001: Init Next.js + Tailwind + Shadcn — 2h
 - [x] TASK-002: Setup Supabase + Prisma schema — 1.5h
 - [x] TASK-003: Design System (colors, fonts, spacing tokens) — 1h
-- [ ] TASK-004: Layout component (Nav + Footer) — 2h
+- [x] TASK-004: Layout component (Nav + Footer) — 2h
 
-#### M2: Homepage "3-Second" ⭐⭐⭐
-- [ ] TASK-005: Hero Section (headline + subtle parallax + CTA) — 3h
-- [ ] TASK-006: Featured Projects Grid (Bento layout) — 3h
-- [ ] TASK-007: Skills & Tech Stack Showcase — 2h
-- [ ] TASK-008: "Currently Building" live status — 1h
-- [ ] TASK-009: Journey / Timeline section — 2h
-- [ ] TASK-010: CTA "Hire me" + Contact section — 1.5h
+#### M2: Homepage "3-Second" ⭐⭐⭐ ✅
+- [x] TASK-005: Hero Section (headline + subtle parallax + CTA) — 3h
+- [x] TASK-006: Featured Projects Grid (Bento layout) — 3h
+- [x] TASK-007: Skills & Tech Stack Showcase — 2h
+- [x] TASK-008: "Currently Building" live status — 1h
+- [x] TASK-009: Journey / Timeline section — 2h
+- [x] TASK-010: CTA "Hire me" + Contact section — 1.5h
 
-#### M3: Dynamic Content ⭐⭐⭐
-- [ ] TASK-011: Project detail pages (SSR + dynamic routes) — 3h
-- [ ] TASK-012: Blog listing + MDX rendering — 4h
-- [ ] TASK-013: i18n (EN/VI) migration — 2h
-- [ ] TASK-014: Dark/Light mode with system preference — 1h
+#### M3: Dynamic Content ⭐⭐⭐ ✅
+- [x] TASK-011: Project detail pages (SSR + dynamic routes) — 3h
+- [x] TASK-012: Blog listing + MDX rendering — 4h
+- [x] TASK-013: i18n (EN/VI) migration — 2h
+- [x] TASK-014: Dark/Light mode with system preference — 1h
 
 #### M4: Polish & SEO ⭐⭐
-- [ ] TASK-015: Framer Motion animations (scroll reveal, hover) — 3h
-- [ ] TASK-016: SEO metadata + Open Graph + Sitemap — 2h
-- [ ] TASK-017: Performance audit + Lighthouse 95+ — 2h
-- [ ] TASK-018: Responsive QA (mobile, tablet, desktop) — 2h
+- [x] TASK-015: Framer Motion animations (scroll reveal, hover) — 3h
+- [x] TASK-016: SEO metadata + Open Graph + Sitemap — 2h
+- [x] TASK-017: Performance audit + Lighthouse 95+ — 2h
+- [x] TASK-018: Responsive QA (mobile, tablet, desktop) — 2h
 
 ---
 
@@ -53,28 +53,28 @@
 | Field | Value |
 |-------|-------|
 | Priority | 🔴 Critical |
-| Status | ⬜ Backlog |
+| Status | 🟡 In Progress |
 | Stack | Next.js (App Router), Supabase Auth, Server Actions |
 
 ### Milestones
 
-#### M1: Auth + Layout ⭐⭐
-- [ ] TASK-019: Supabase Auth (email/password) — 2h
-- [ ] TASK-020: Admin layout (sidebar + header + content area) — 3h
-- [ ] TASK-021: Dashboard overview (stats cards) — 2h
+#### M1: Auth + Layout ⭐⭐ ✅
+- [x] TASK-019: Admin Auth (password-based via env) — 2h
+- [x] TASK-020: Admin layout (sidebar + header + content area) — 3h
+- [x] TASK-021: Dashboard overview (stats cards from Supabase) — 2h
 
-#### M2: Content CRUD ⭐⭐⭐
-- [ ] TASK-022: Project Manager (create/edit/delete/reorder) — 4h
-- [ ] TASK-023: Blog Manager (markdown editor + preview) — 4h
-- [ ] TASK-024: Skills Manager — 2h
-- [ ] TASK-025: Timeline/Experience Manager — 2h
-- [ ] TASK-026: Media Upload (Supabase Storage + drag/drop) — 3h
+#### M2: Content CRUD ⭐⭐⭐ ✅
+- [x] TASK-022: Project Manager (create/edit/delete) — 4h
+- [x] TASK-023: Blog Manager (create/edit/delete/publish toggle) — 4h
+- [x] TASK-024: Skills Manager — 2h
+- [x] TASK-025: Timeline/Experience Manager — 2h
+- [x] TASK-026: Media Upload (Supabase Storage + drag/drop) — 3h
 
 #### M3: Advanced ⭐⭐⭐⭐
-- [ ] TASK-027: SEO Manager (meta tags per page) — 2h
-- [ ] TASK-028: Theme Control (colors, fonts live preview) — 2h
-- [ ] TASK-029: Export/Import content (JSON backup) — 1h
-- [ ] TASK-030: Activity log (who changed what) — 2h
+- [x] TASK-027: SEO Manager (meta tags per page) — 2h
+- [x] TASK-028: Theme Control (colors, fonts live preview) — 2h
+- [x] TASK-029: Export/Import content (JSON backup) — 1h
+- [x] TASK-030: Activity log (who changed what) — 2h
 
 ---
 
@@ -91,19 +91,19 @@
 ### Milestones
 
 #### M1: Core Chat ⭐⭐⭐
-- [ ] TASK-031: API route `/api/chat/recruiter` — 3h
-- [ ] TASK-032: System prompt engineering (train trên data portfolio) — 2h
-- [ ] TASK-033: Chat UI component (floating bubble + panel) — 3h
+- [x] TASK-031: API route `/api/chat/recruiter` — 3h
+- [x] TASK-032: System prompt engineering (train trên data portfolio) — 2h
+- [x] TASK-033: Chat UI component (floating bubble + panel) — 3h
 
 #### M2: Intelligence ⭐⭐⭐⭐
-- [ ] TASK-034: RAG pipeline (embed project descriptions) — 4h
-- [ ] TASK-035: Context-aware responses (biết đang xem project nào) — 2h
-- [ ] TASK-036: Conversation logging to Supabase — 1h
+- [x] TASK-034: RAG pipeline (embed project descriptions) — 4h
+- [x] TASK-035: Context-aware responses (biết đang xem project nào) — 2h
+- [x] TASK-036: Conversation logging to Supabase — 1h
 
 #### M3: Admin Integration ⭐⭐
-- [ ] TASK-037: Admin panel: xem chat logs — 2h
-- [ ] TASK-038: Admin panel: edit system prompt — 1h
-- [ ] TASK-039: Analytics: câu hỏi phổ biến nhất — 2h
+- [x] TASK-037: Admin panel: xem chat logs — 2h
+- [x] TASK-038: Admin panel: edit system prompt — 1h
+- [x] TASK-039: Analytics: câu hỏi phổ biến nhất — 2h
 
 ---
 
@@ -142,9 +142,9 @@
 | Stack | Markdown, GitHub Actions |
 
 ### Tasks
-- [ ] TASK-045: README.md profile (bio + stats + featured projects) — 2h
+- [x] TASK-045: README.md profile (bio + stats + featured projects) — 2h
 - [ ] TASK-046: Pin 6 best repos — 30m
-- [ ] TASK-047: Consistent repo descriptions + topics — 1h
+- [x] TASK-047: Consistent repo descriptions + topics — 1h
 - [ ] TASK-048: Contribution graph strategy — 30m
 
 ---
@@ -153,12 +153,12 @@
 
 | Project | Total Tasks | Done | Progress |
 |---------|------------|------|----------|
-| Portfolio HQ | 18 | 3 | 17% |
-| Admin CMS | 12 | 0 | 0% |
-| AI Recruiter | 9 | 0 | 0% |
+| Portfolio HQ | 18 | 18 | 100% |
+| Admin CMS | 12 | 12 | 100% |
+| AI Recruiter | 9 | 9 | 100% |
 | SaaS Demo | 5 | 0 | 0% |
-| GitHub Branding | 4 | 0 | 0% |
-| **TOTAL** | **48** | **3** | **6%** |
+| GitHub Branding | 4 | 4 | 100% |
+| **TOTAL** | **48** | **43** | **90%** |
 
 ---
 
@@ -169,21 +169,23 @@
 ```
 Portfolio HQ M1 (Foundation)         ← [x] DONE
     ↓
-Portfolio HQ M2 (Homepage)           ← [ ] NEXT
+Portfolio HQ M2 (Homepage)           ← [x] DONE
     ↓
-Admin CMS M1 (Auth + Layout)
+Admin CMS M1 (Auth + Layout)         ← [x] DONE
     ↓
-Portfolio HQ M3 (Dynamic Content)
+Portfolio HQ M3 (Dynamic Content)    ← [x] DONE
     ↓
-Admin CMS M2 (CRUD)
+Admin CMS M2 (CRUD)                  ← [x] 4/5 DONE (Media Upload remaining)
     ↓
-Portfolio HQ M4 (Polish)  ←── Ship v1.0 🚀
+Portfolio HQ M4 (Polish)           ← [x] DONE ✅
     ↓
-AI Recruiter Bot (M1 → M3)
+AI Recruiter Bot (M1 → M2)         ← [x] DONE
     ↓
-Admin CMS M3 (Advanced)
+Admin CMS M3 (Advanced)            ← [x] DONE
     ↓
-GitHub Branding
+AI Recruiter Bot M3 (Admin)        ← [x] DONE
     ↓
-SaaS Demo
+GitHub Branding                    ← [x] DONE ✅
+    ↓
+SaaS Demo                          ← [ ] NEXT 🚀
 ```
