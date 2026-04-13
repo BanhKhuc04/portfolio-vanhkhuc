@@ -112,3 +112,23 @@ model ActivityLog {
   details   String?  // Optional JSON string or description
   createdAt DateTime @default(now())
 }
+
+model ShortLink {
+  id          String          @id @default(uuid())
+  shortCode   String          @unique
+  originalUrl String
+  clicks      Int             @default(0)
+  analytics   LinkAnalytics[]
+  createdAt   DateTime        @default(now())
+  updatedAt   DateTime        @updatedAt
+}
+
+model LinkAnalytics {
+  id          String    @id @default(uuid())
+  linkId      String
+  link        ShortLink @relation(fields: [linkId], references: [id], onDelete: Cascade)
+  userAgent   String?
+  ipHash      String?   // Hashed for privacy
+  country     String?
+  createdAt   DateTime  @default(now())
+}
