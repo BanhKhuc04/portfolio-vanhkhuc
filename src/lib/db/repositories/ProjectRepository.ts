@@ -1,7 +1,7 @@
 import 'server-only'
-import prisma from '../prisma'
-import { projects as mockProjects, Project } from '../data'
-import { dictionaries, Locale } from '../dictionaries'
+import prisma from '@/lib/db/prisma'
+import { projects as mockProjects, Project } from '@/content/data'
+import { dictionaries, Locale } from '@/lib/i18n/dictionaries'
 
 /**
  * ProjectRepository handles data fetching for projects.

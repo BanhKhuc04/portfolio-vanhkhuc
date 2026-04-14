@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server'
-import prisma from '@/lib/prisma'
-import { recordActivity } from '@/lib/utils/activity'
+import prisma from '@/lib/db/prisma'
+import { recordActivity } from '@/lib/services/activity'
 import { revalidatePath } from 'next/cache'
 
 /**

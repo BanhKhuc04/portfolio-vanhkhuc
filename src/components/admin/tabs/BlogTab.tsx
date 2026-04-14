@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Search, Loader2, Edit2, Trash2, X, FileText, Plus } from 'lucide-react'
-import { MediaUpload } from '@/components/ui/MediaUpload'
+import { MediaUpload } from '@/components/admin/MediaUpload'
 import type { BlogPost } from '@/types/admin'
 
 interface Props {

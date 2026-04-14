@@ -3,7 +3,7 @@
 import React, { useState, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Upload, X, Loader2, Image as ImageIcon, CheckCircle2, AlertCircle } from 'lucide-react'
-import { supabase } from '@/lib/supabase'
+import { supabase } from '@/lib/db/supabase'
 
 interface MediaUploadProps {
   onUploadComplete: (url: string) => void

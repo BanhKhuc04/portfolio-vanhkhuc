@@ -1,7 +1,7 @@
 import React from 'react'
-import { ProjectRepository } from '@/lib/repositories/ProjectRepository'
-import { dictionaries, Locale } from '@/lib/dictionaries'
-import ProjectDetailClient from '@/components/ui/ProjectDetailClient'
+import { ProjectRepository } from '@/lib/db/repositories/ProjectRepository'
+import { dictionaries, Locale } from '@/lib/i18n/dictionaries'
+import ProjectDetailClient from '@/features/projects/ProjectDetail'
 import { notFound } from 'next/navigation'
 
 interface PageProps {

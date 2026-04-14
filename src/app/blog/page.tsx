@@ -1,8 +1,8 @@
 import React from 'react'
-import { BlogRepository } from '@/lib/repositories/BlogRepository'
-import { dictionaries, Locale } from '@/lib/dictionaries'
-import BlogListingClient from '@/components/ui/BlogListingClient'
-import { SEORepository } from '@/lib/repositories/SEORepository'
+import { BlogRepository } from '@/lib/db/repositories/BlogRepository'
+import { dictionaries, Locale } from '@/lib/i18n/dictionaries'
+import BlogListingClient from '@/features/blog/BlogListing'
+import { SEORepository } from '@/lib/db/repositories/SEORepository'
 import { Metadata } from 'next'
 
 export async function generateMetadata(): Promise<Metadata> {

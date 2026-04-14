@@ -3,7 +3,7 @@
 import React, { useRef } from 'react'
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion'
 import { StarCanvas } from '@/components/ui/StarCanvas'
-import { LiveStatus } from '@/components/ui/LiveStatus'
+import { LiveStatus } from '@/features/status/LiveStatus'
 import { ChevronDown, ArrowRight, Code, Cpu, Globe } from 'lucide-react'
 import Link from 'next/link'
 import { useLanguage } from '@/providers/LanguageProvider'

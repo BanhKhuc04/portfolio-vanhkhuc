@@ -1,4 +1,4 @@
-import prisma from '@/lib/prisma'
+import prisma from '@/lib/db/prisma'
 
 export async function recordActivity(action: string, target: string, details?: string) {
   try {

@@ -4,8 +4,8 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { ArrowRight, Calendar, Clock } from 'lucide-react'
 import Link from 'next/link'
-import { BlogPost } from '@/lib/repositories/BlogRepository'
-import { Locale } from '@/lib/dictionaries'
+import { BlogPost } from '@/lib/db/repositories/BlogRepository'
+import { Locale } from '@/lib/i18n/dictionaries'
 
 interface BlogListingClientProps {
   posts: BlogPost[]

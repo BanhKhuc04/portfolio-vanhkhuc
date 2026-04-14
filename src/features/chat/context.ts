@@ -1,4 +1,4 @@
-import prisma from '@/lib/prisma'
+import prisma from '@/lib/db/prisma'
 
 export async function getPortfolioContext(locale: string = 'en') {
   const isVietnamese = locale === 'vi'

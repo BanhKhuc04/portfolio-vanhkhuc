@@ -2,7 +2,7 @@
 
 import React from 'react'
 import { motion } from 'framer-motion'
-import { Project } from '@/lib/data'
+import { Project } from '@/content/data'
 import { ArrowUpRight } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import Link from 'next/link'

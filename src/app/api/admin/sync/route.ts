@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server'
-import prisma from '@/lib/prisma'
-import { projects as mockProjects, skillCategories, journey } from '@/lib/data'
-import { dictionaries } from '@/lib/dictionaries'
+import prisma from '@/lib/db/prisma'
+import { projects as mockProjects, skillCategories, journey } from '@/content/data'
+import { dictionaries } from '@/lib/i18n/dictionaries'
 
 export async function POST() {
   try {

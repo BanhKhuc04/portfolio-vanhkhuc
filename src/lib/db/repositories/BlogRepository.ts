@@ -1,6 +1,6 @@
 import 'server-only'
-import prisma from '../prisma'
-import { dictionaries, Locale } from '../dictionaries'
+import prisma from '@/lib/db/prisma'
+import { dictionaries, Locale } from '@/lib/i18n/dictionaries'
 
 export interface BlogPost {
   id: string

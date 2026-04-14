@@ -1,7 +1,7 @@
 import React from 'react'
-import { BlogRepository } from '@/lib/repositories/BlogRepository'
-import { Locale } from '@/lib/dictionaries'
-import BlogPostClient from '@/components/ui/BlogPostClient'
+import { BlogRepository } from '@/lib/db/repositories/BlogRepository'
+import { Locale } from '@/lib/i18n/dictionaries'
+import BlogPostClient from '@/features/blog/BlogPost'
 import { notFound } from 'next/navigation'
 import { Metadata } from 'next'
 

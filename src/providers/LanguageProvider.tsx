@@ -1,7 +1,7 @@
 "use client"
 
 import React, { createContext, useContext, useState, useEffect } from 'react'
-import { Locale, dictionaries } from '@/lib/dictionaries'
+import { Locale, dictionaries } from '@/lib/i18n/dictionaries'
 
 type Theme = 'light' | 'dark' | 'system'
 

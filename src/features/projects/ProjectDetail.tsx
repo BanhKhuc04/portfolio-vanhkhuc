@@ -4,8 +4,8 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { ArrowLeft, ExternalLink, Globe } from 'lucide-react'
 import { useRouter } from 'next/navigation'
-import { Project } from '@/lib/data'
-import { Locale } from '@/lib/dictionaries'
+import { Project } from '@/content/data'
+import { Locale } from '@/lib/i18n/dictionaries'
 
 interface ProjectDetailClientProps {
   project: Project

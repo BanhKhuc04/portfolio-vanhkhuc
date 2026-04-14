@@ -17,7 +17,7 @@ const outfit = Outfit({
   subsets: ["latin"],
 })
 
-import { DynamicThemeProvider } from '@/components/providers/DynamicThemeProvider'
+import { DynamicThemeProvider } from '@/providers/DynamicThemeProvider'
 
 export function LayoutContent({ children }: { children: React.ReactNode }) {
   const { locale } = useLanguage()

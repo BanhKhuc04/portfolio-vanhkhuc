@@ -1,7 +1,7 @@
 import { createGroq } from '@ai-sdk/groq'
 import { streamText, convertToModelMessages } from 'ai'
-import { getPortfolioContext } from '@/lib/ai/context'
-import prisma from '@/lib/prisma'
+import { getPortfolioContext } from '@/features/chat/context'
+import prisma from '@/lib/db/prisma'
 
 export const runtime = 'nodejs'
 

@@ -2,8 +2,8 @@
 
 import React from 'react'
 import { motion } from 'framer-motion'
-import { ProjectCard } from '@/components/ui/ProjectCard'
-import { projects as staticProjects, Project } from '@/lib/data'
+import { ProjectCard } from '@/features/projects/ProjectCard'
+import { projects as staticProjects, Project } from '@/content/data'
 import { useLanguage } from '@/providers/LanguageProvider'
 
 interface ProjectsGridProps {

@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server'
-import prisma from '@/lib/prisma'
+import prisma from '@/lib/db/prisma'
 import { revalidatePath } from 'next/cache'
 
 export async function GET() {

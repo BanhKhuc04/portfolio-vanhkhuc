@@ -2,7 +2,7 @@
 
 import React from 'react'
 import { motion } from 'framer-motion'
-import { skillCategories } from '@/lib/data'
+import { skillCategories } from '@/content/data'
 import { cn } from '@/lib/utils'
 import { useLanguage } from '@/providers/LanguageProvider'
 

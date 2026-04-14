@@ -3,7 +3,7 @@ import "./globals.css"
 import { LanguageProvider } from "@/providers/LanguageProvider"
 import { LayoutContent } from "./LayoutContent"
 
-import { SEORepository } from "@/lib/repositories/SEORepository"
+import { SEORepository } from "@/lib/db/repositories/SEORepository"
 
 export async function generateMetadata(): Promise<Metadata> {
   const seo = await SEORepository.getByPage('home')
@@ -51,7 +51,7 @@ export async function generateMetadata(): Promise<Metadata> {
   }
 }
 
-import { RecruiterChat } from "@/components/ui/RecruiterChat"
+import { RecruiterChat } from "@/features/chat/RecruiterChat"
 
 export default function RootLayout({
   children,
