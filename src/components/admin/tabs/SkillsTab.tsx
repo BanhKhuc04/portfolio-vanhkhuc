@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Loader2, Edit2, Trash2, X, Wrench, Plus } from 'lucide-react'
-import type { Skill } from '@/types/admin'
+import type { Skill } from '@/types'
 
 interface Props {
   skills: Skill[]

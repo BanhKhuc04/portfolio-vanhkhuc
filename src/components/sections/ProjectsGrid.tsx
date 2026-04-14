@@ -3,11 +3,11 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { ProjectCard } from '@/features/projects/ProjectCard'
-import { projects as staticProjects, Project } from '@/content/data'
+import { projects as staticProjects, ProjectDisplay } from '@/content/data'
 import { useLanguage } from '@/providers/LanguageProvider'
 
 interface ProjectsGridProps {
-  initialProjects?: Project[]
+  initialProjects?: ProjectDisplay[]
 }
 
 export function ProjectsGrid({ initialProjects }: ProjectsGridProps) {

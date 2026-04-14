@@ -1,4 +1,4 @@
-export interface Project {
+export interface ProjectDisplay {
   id: string
   title: string
   description: string
@@ -12,7 +12,7 @@ export interface Project {
   imageUrl?: string
 }
 
-export const projects: Project[] = [
+export const projects: ProjectDisplay[] = [
   {
     id: "taskflow",
     title: "TaskFlow",

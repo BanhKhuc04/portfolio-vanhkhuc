@@ -1,6 +1,6 @@
 import 'server-only'
 import prisma from '@/lib/db/prisma'
-import { projects as mockProjects, Project } from '@/content/data'
+import { projects as mockProjects, ProjectDisplay } from '@/content/data'
 import { dictionaries, Locale } from '@/lib/i18n/dictionaries'
 
 /**
@@ -11,7 +11,7 @@ export const ProjectRepository = {
   /**
    * Get all projects localized for a specific locale
    */
-  async getAll(locale: Locale): Promise<Project[]> {
+  async getAll(locale: Locale): Promise<ProjectDisplay[]> {
     try {
       // Attempt to fetch from Prisma
       const dbProjects = await prisma.project.findMany({
@@ -47,7 +47,7 @@ export const ProjectRepository = {
   /**
    * Get a single project by ID localized
    */
-  async getById(id: string, locale: Locale): Promise<Project | null> {
+  async getById(id: string, locale: Locale): Promise<ProjectDisplay | null> {
     try {
       const p = await prisma.project.findUnique({
         where: { id }

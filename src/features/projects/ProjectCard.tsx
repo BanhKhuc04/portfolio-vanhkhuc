@@ -2,7 +2,7 @@
 
 import React from 'react'
 import { motion } from 'framer-motion'
-import { Project } from '@/content/data'
+import { ProjectDisplay } from '@/content/data'
 import { ArrowUpRight } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import Link from 'next/link'
@@ -10,7 +10,7 @@ import Link from 'next/link'
 import { ScrollReveal } from '@/components/ui/ScrollReveal'
 
 interface ProjectCardProps {
-  project: Project
+  project: ProjectDisplay
   className?: string
   index: number
 }

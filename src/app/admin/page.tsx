@@ -8,7 +8,7 @@ import {
 } from 'lucide-react'
 import Link from 'next/link'
 
-import type { Project, BlogPost, Skill, Experience, SEOMetadata, ChatSession, ActivityLog, ChatAnalytics, DashStats } from '@/types/admin'
+import type { Project, BlogPost, Skill, Experience, SEOMetadata, ChatSession, ActivityLog, ChatAnalytics, DashStats } from '@/types'
 
 import { AuthGate } from '@/components/admin/AuthGate'
 import { DashboardTab } from '@/components/admin/tabs/DashboardTab'

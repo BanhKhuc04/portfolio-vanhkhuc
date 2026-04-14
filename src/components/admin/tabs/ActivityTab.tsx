@@ -1,7 +1,7 @@
 "use client"
 import React from 'react'
 import { Clock } from 'lucide-react'
-import type { ActivityLog } from '@/types/admin'
+import type { ActivityLog } from '@/types'
 
 interface Props {
   activityLogs: ActivityLog[]

@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Loader2, Edit2, Trash2, X, Briefcase, Plus } from 'lucide-react'
-import type { Experience } from '@/types/admin'
+import type { Experience } from '@/types'
 
 interface Props {
   experiences: Experience[]

@@ -2,7 +2,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { ArrowUpRight, Folder, FileText, BookOpen, Wrench, Briefcase, MessageSquare, CheckCircle2, BarChart3, Loader2 } from 'lucide-react'
-import type { DashStats } from '@/types/admin'
+import type { DashStats } from '@/types'
 
 interface Props {
   stats: DashStats

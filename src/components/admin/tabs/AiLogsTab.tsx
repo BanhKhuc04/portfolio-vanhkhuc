@@ -1,7 +1,7 @@
 "use client"
 import React, { useState } from 'react'
 import { Zap, MessageSquare, Loader2, Trash2, ShieldAlert } from 'lucide-react'
-import type { ChatSession, ChatAnalytics } from '@/types/admin'
+import type { ChatSession, ChatAnalytics } from '@/types'
 
 interface Props {
   chatSessions: ChatSession[]
