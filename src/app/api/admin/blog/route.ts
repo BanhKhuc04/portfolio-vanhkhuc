@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server'
 import prisma from '@/lib/prisma'
 import { recordActivity } from '@/lib/utils/activity'
+import { revalidatePath } from 'next/cache'
 
 /**
  * Admin API for Blog Posts management
@@ -38,6 +39,8 @@ export async function POST(request: Request) {
     })
 
     await recordActivity('CREATE_BLOG', post.titleEn, `Created blog post: /blog/${post.slug}`)
+    revalidatePath('/')
+    revalidatePath('/blog')
 
     return NextResponse.json(post)
   } catch (error) {
@@ -53,7 +56,6 @@ export async function PUT(request: Request) {
 
     if (!id) return NextResponse.json({ error: 'ID is required' }, { status: 400 })
 
-    // Handle published state change
     if (updateData.published !== undefined) {
       updateData.publishedAt = updateData.published ? new Date() : null
     }
@@ -64,6 +66,9 @@ export async function PUT(request: Request) {
     })
 
     await recordActivity('UPDATE_BLOG', post.titleEn, `Updated blog post: /blog/${post.slug}`)
+    revalidatePath('/')
+    revalidatePath('/blog')
+    revalidatePath(`/blog/${post.slug}`)
 
     return NextResponse.json(post)
   } catch (error) {
@@ -82,6 +87,9 @@ export async function DELETE(request: Request) {
     const post = await prisma.blogPost.delete({ where: { id } })
 
     await recordActivity('DELETE_BLOG', post.titleEn, `Deleted blog post ID: ${id}`)
+    revalidatePath('/')
+    revalidatePath('/blog')
+    revalidatePath(`/blog/${post.slug}`)
 
     return NextResponse.json({ success: true })
   } catch {

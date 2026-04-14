@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server'
 import prisma from '@/lib/prisma'
 import { recordActivity } from '@/lib/utils/activity'
+import { revalidatePath } from 'next/cache'
 
 export async function GET() {
   try {
@@ -41,6 +42,7 @@ export async function PUT(request: Request) {
     })
 
     await recordActivity('UPDATE_SEO', seoRecord.page, `Updated SEO metadata for page: /${seoRecord.page}`)
+    revalidatePath('/', 'layout')
 
     return NextResponse.json(seoRecord)
   } catch (error) {

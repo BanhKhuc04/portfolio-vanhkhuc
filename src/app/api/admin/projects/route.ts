@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server'
 import prisma from '@/lib/prisma'
 import { recordActivity } from '@/lib/utils/activity'
+import { revalidatePath } from 'next/cache'
 
 /**
  * Admin API for Projects management
@@ -36,6 +37,8 @@ export async function POST(request: Request) {
     })
 
     await recordActivity('CREATE_PROJECT', project.titleEn, `Created project ID: ${project.id}`)
+    revalidatePath('/')
+    revalidatePath('/projects')
 
     return NextResponse.json(project)
   } catch (error) {
@@ -57,6 +60,9 @@ export async function PUT(request: Request) {
     })
 
     await recordActivity('UPDATE_PROJECT', project.titleEn, `Updated project ID: ${id}`)
+    revalidatePath('/')
+    revalidatePath('/projects')
+    revalidatePath(`/projects/${id}`)
 
     return NextResponse.json(project)
   } catch (error) {
@@ -77,6 +83,8 @@ export async function DELETE(request: Request) {
     })
 
     await recordActivity('DELETE_PROJECT', project.titleEn, `Deleted project ID: ${id}`)
+    revalidatePath('/')
+    revalidatePath('/projects')
 
     return NextResponse.json({ success: true })
   } catch (error) {

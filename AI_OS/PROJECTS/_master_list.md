@@ -138,7 +138,7 @@
 | Field | Value |
 |-------|-------|
 | Priority | 🟢 Low (nhưng high impact) |
-| Status | ⬜ Backlog |
+| Status | 🟢 Shipped |
 | Stack | Markdown, GitHub Actions |
 
 ### Tasks
@@ -146,6 +146,31 @@
 - [x] TASK-046: Pin 6 best repos — 30m
 - [x] TASK-047: Consistent repo descriptions + topics — 1h
 - [x] TASK-048: Contribution graph strategy — 30m
+
+---
+
+## 🔥 PROJECT 6: Production Hardening & Security Lockdown
+
+> **Đưa hệ thống từ mức Demo lên Chuẩn Production chuyên nghiệp và bảo mật tuyệt đối.**
+
+| Field | Value |
+|-------|-------|
+| Priority | 🔴 P0 - Critical |
+| Status | 🟡 Planning |
+| Stack | Next.js Middleware, JWT, Prisma Indexes, Caching |
+
+### Milestones (Xem chi tiết tại 06_production_hardening.md)
+- [x] TASK-049: JWT Authentication Setup
+- [x] TASK-050: Next.js Edge Middleware
+- [x] TASK-051: Frontend Admin Auth Refactory
+- [x] TASK-052: Rà soát & Loại bỏ Secret Leaks
+- [x] TASK-053: Missing Indexing (Schema Optimization)
+- [x] TASK-054: Backend Pagination & Limit Protection
+- [x] TASK-055: Next.js Data Revalidation Strategy
+- [x] TASK-056: API Rate Limiting
+- [x] TASK-057: Admin Monolith Componentization
+- [x] TASK-058: Centralized Error Handling
+- [x] TASK-059: End-to-End Test (E2E)
 
 ---
 
@@ -158,7 +183,8 @@
 | AI Recruiter | 9 | 9 | 100% |
 | SaaS Demo | 5 | 5 | 100% |
 | GitHub Branding | 4 | 4 | 100% |
-| **TOTAL** | **48** | **48** | **100%** |
+| Production Hardening | 11 | 11 | 100% |
+| **TOTAL** | **59** | **59** | **100%** |
 
 ---
 
@@ -187,5 +213,7 @@ AI Recruiter Bot M3 (Admin)        ← [x] DONE
     ↓
 SaaS Demo                          ← [x] DONE ✅
     ↓
-AI_OS Launch                       ← [x] SHIPPED 🚀
+AI_OS System Hardening             ← [ ] IN PROGRESS 🚀
+    ↓
+Final Launch Production            ← [ ] NEXT
 ```

@@ -2,7 +2,7 @@
 
 import * as React from "react"
 import Link from "next/link"
-import Image from "next/image"
+
 import { Menu, X } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 import { cn } from "@/lib/utils"
@@ -41,8 +41,8 @@ export function Navbar() {
       <nav className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 group">
-          <div className="relative w-10 h-10 overflow-hidden rounded-lg bg-primary flex items-center justify-center group-hover:scale-105 transition-transform">
-             <span className="text-primary-foreground font-bold text-xl relative z-10">K4</span>
+          <div className="relative w-10 h-10 overflow-hidden rounded-lg bg-white border border-border group-hover:scale-105 transition-transform">
+             <img src="/logo.png" alt="K4 Logo" width={40} height={40} className="w-full h-full object-contain" />
           </div>
           <span className="font-heading font-bold text-xl tracking-tighter hidden sm:block">
             vanhkhuc.dev

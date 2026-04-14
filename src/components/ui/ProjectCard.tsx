@@ -31,7 +31,7 @@ export function ProjectCard({ project, className, index }: ProjectCardProps) {
         className="h-full"
         width="100%"
       >
-        <div className="group relative flex flex-col h-full overflow-hidden rounded-[2.5rem] border border-white/10 bg-white/5 backdrop-blur-xl transition-all hover:bg-white/10 hover:border-white/20 p-8">
+        <div className="group relative flex flex-col h-full overflow-hidden rounded-[2.5rem] border border-border bg-card/80 backdrop-blur-xl transition-all hover:bg-card hover:border-primary/20 p-8">
           
           {/* Background Image Layer */}
           {project.imageUrl && (
@@ -56,24 +56,24 @@ export function ProjectCard({ project, className, index }: ProjectCardProps) {
             {/* Header */}
             <div className="flex items-start justify-between mb-6">
               <div className="space-y-1">
-                <span className="text-[10px] font-bold uppercase tracking-widest text-primary/80">
+                <span className="text-[11px] font-bold uppercase tracking-widest text-primary">
                   {project.tag}
                 </span>
                 <h3 className={cn(
-                  "font-heading font-bold text-white",
+                  "font-heading font-bold text-foreground",
                   project.featured ? "text-3xl" : "text-xl"
                 )}>
                   {project.title}
                 </h3>
               </div>
-              <div className="rounded-full bg-white/10 p-2 text-white transition-all group-hover:bg-primary group-hover:text-primary-foreground transform group-hover:rotate-45">
+              <div className="rounded-full bg-muted p-2 text-foreground transition-all group-hover:bg-primary group-hover:text-primary-foreground transform group-hover:rotate-45">
                 <ArrowUpRight size={20} />
               </div>
             </div>
 
             {/* Description */}
             <p className={cn(
-              "text-muted-foreground leading-relaxed transition-colors group-hover:text-slate-200",
+              "text-muted-foreground leading-relaxed transition-colors group-hover:text-foreground",
               project.featured ? "text-lg max-w-lg" : "text-sm"
             )}>
               {project.description}
@@ -81,7 +81,7 @@ export function ProjectCard({ project, className, index }: ProjectCardProps) {
 
             {/* Footer / Stat */}
             <div className="mt-auto pt-8 flex items-center justify-between">
-              <div className="inline-flex items-center gap-2 text-xs font-semibold text-white/50 bg-white/5 px-3 py-1.5 rounded-full border border-white/5 group-hover:border-white/20 transition-colors">
+              <div className="inline-flex items-center gap-2 text-xs font-semibold text-muted-foreground bg-muted/50 px-3 py-1.5 rounded-full border border-border group-hover:border-primary/20 transition-colors">
                 <span className="h-1.5 w-1.5 rounded-full bg-primary" />
                 {project.stat || "Real-time"}
               </div>

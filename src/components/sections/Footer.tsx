@@ -14,9 +14,11 @@ export function Footer() {
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="space-y-4">
-            {/* Logo - Giữ nguyên */}
+            {/* Logo */}
             <div className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-white font-bold">K4</div>
+              <div className="w-8 h-8 overflow-hidden rounded-lg bg-white border border-border">
+                <img src="/logo.png" alt="K4 Logo" width={32} height={32} className="w-full h-full object-contain" />
+              </div>
               <span className="font-heading font-bold text-lg tracking-tighter">vanhkhuc.dev</span>
             </div>
             <p className="text-muted-foreground text-sm max-w-xs">{t('footer.tagline')}</p>

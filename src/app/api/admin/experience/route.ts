@@ -1,8 +1,10 @@
 import { NextResponse } from 'next/server'
 import prisma from '@/lib/prisma'
+import { recordActivity } from '@/lib/utils/activity'
+import { revalidatePath } from 'next/cache'
 
 /**
- * Admin API for Experience / Timeline management
+ * Admin API for Experience management
  */
 
 export async function GET() {
@@ -21,7 +23,7 @@ export async function POST(request: Request) {
     const data = await request.json()
     const { titleEn, titleVi, company, descriptionEn, descriptionVi, startDate, endDate } = data
 
-    const experience = await prisma.experience.create({
+    const exp = await prisma.experience.create({
       data: {
         titleEn,
         titleVi,
@@ -33,7 +35,10 @@ export async function POST(request: Request) {
       }
     })
 
-    return NextResponse.json(experience)
+    await recordActivity('CREATE_EXPERIENCE', exp.company, `Added experience: ${exp.titleEn}`)
+    revalidatePath('/')
+
+    return NextResponse.json(exp)
   } catch (error) {
     console.error('Experience creation failed:', error)
     return NextResponse.json({ error: 'Failed to create experience' }, { status: 500 })
@@ -43,20 +48,27 @@ export async function POST(request: Request) {
 export async function PUT(request: Request) {
   try {
     const data = await request.json()
-    const { id, startDate, endDate, ...rest } = data
+    const { id, titleEn, titleVi, company, descriptionEn, descriptionVi, startDate, endDate } = data
 
     if (!id) return NextResponse.json({ error: 'ID is required' }, { status: 400 })
 
-    const updateData: any = { ...rest }
-    if (startDate) updateData.startDate = new Date(startDate)
-    if (endDate !== undefined) updateData.endDate = endDate ? new Date(endDate) : null
-
-    const experience = await prisma.experience.update({
+    const exp = await prisma.experience.update({
       where: { id },
-      data: updateData
+      data: {
+        ...(titleEn && { titleEn }),
+        ...(titleVi && { titleVi }),
+        ...(company && { company }),
+        ...(descriptionEn && { descriptionEn }),
+        ...(descriptionVi && { descriptionVi }),
+        ...(startDate && { startDate: new Date(startDate) }),
+        endDate: endDate ? new Date(endDate) : null
+      }
     })
 
-    return NextResponse.json(experience)
+    await recordActivity('UPDATE_EXPERIENCE', exp.company, `Updated experience: ${exp.titleEn}`)
+    revalidatePath('/')
+
+    return NextResponse.json(exp)
   } catch (error) {
     console.error('Experience update failed:', error)
     return NextResponse.json({ error: 'Failed to update experience' }, { status: 500 })
@@ -70,7 +82,10 @@ export async function DELETE(request: Request) {
 
     if (!id) return NextResponse.json({ error: 'ID is required' }, { status: 400 })
 
-    await prisma.experience.delete({ where: { id } })
+    const exp = await prisma.experience.delete({ where: { id } })
+
+    await recordActivity('DELETE_EXPERIENCE', exp.company, `Deleted experience ID: ${id}`)
+    revalidatePath('/')
 
     return NextResponse.json({ success: true })
   } catch {

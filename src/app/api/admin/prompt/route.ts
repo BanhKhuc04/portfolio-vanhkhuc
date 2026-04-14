@@ -12,6 +12,8 @@ export async function GET() {
   }
 }
 
+import { revalidatePath } from 'next/cache'
+
 export async function POST(req: Request) {
   try {
     const { content } = await req.json()
@@ -32,6 +34,9 @@ export async function POST(req: Request) {
 
     await recordActivity('UPDATE_AI_PROMPT', 'System Prompt', `Updated AI Recruiter system prompt template`)
     
+    // Recalculate context cache if necessary
+    revalidatePath('/')
+
     return NextResponse.json({ success: true })
   } catch (error) {
     console.error('Failed to save prompt:', error)

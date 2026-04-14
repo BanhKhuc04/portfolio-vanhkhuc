@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server'
 import prisma from '@/lib/prisma'
 import { recordActivity } from '@/lib/utils/activity'
+import { revalidatePath } from 'next/cache'
 
 /**
  * Admin API for Skills management
@@ -32,6 +33,7 @@ export async function POST(request: Request) {
     })
 
     await recordActivity('CREATE_SKILL', skill.name, `Added skill: ${skill.name} (${skill.category})`)
+    revalidatePath('/')
 
     return NextResponse.json(skill)
   } catch (error) {
@@ -53,6 +55,7 @@ export async function PUT(request: Request) {
     })
 
     await recordActivity('UPDATE_SKILL', skill.name, `Updated skill: ${skill.name}`)
+    revalidatePath('/')
 
     return NextResponse.json(skill)
   } catch (error) {
@@ -71,6 +74,7 @@ export async function DELETE(request: Request) {
     const skill = await prisma.skill.delete({ where: { id } })
 
     await recordActivity('DELETE_SKILL', skill.name, `Deleted skill: ${skill.name}`)
+    revalidatePath('/')
 
     return NextResponse.json({ success: true })
   } catch {

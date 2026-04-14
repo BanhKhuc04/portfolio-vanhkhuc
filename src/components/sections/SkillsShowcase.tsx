@@ -65,7 +65,7 @@ export function SkillsShowcase() {
                       viewport={{ once: true }}
                       whileHover={{ 
                         scale: 1.05, 
-                        backgroundColor: "var(--primary-color)",
+                        backgroundColor: "var(--primary)",
                         color: "white" 
                       }}
                       className={cn(

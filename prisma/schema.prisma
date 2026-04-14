@@ -1,8 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Get a free hosted Postgres database in seconds: `npx create-db`
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -24,16 +19,20 @@ model Project {
   featured      Boolean  @default(false)
   createdAt     DateTime @default(now())
   updatedAt     DateTime @updatedAt
+
+  @@index([featured])
 }
 
 model Skill {
   id        String   @id @default(uuid())
   name      String
   icon      String?
-  category  String // e.g., "Frontend", "Backend", "Tools"
-  level     Int      @default(0) // 0-100
+  category  String
+  level     Int      @default(0)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  @@index([category])
 }
 
 model Experience {
@@ -58,23 +57,25 @@ model BlogPost {
   summaryVi   String
   contentEn   String
   contentVi   String
-  imageUrl    String?
   published   Boolean   @default(false)
   publishedAt DateTime?
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
+  imageUrl    String?
+
+  @@index([published])
 }
 
 model SEOMetadata {
-  id          String   @id @default(uuid())
-  page        String   @unique // e.g., "home", "projects", "blog"
-  titleEn     String
-  titleVi     String
+  id            String   @id @default(uuid())
+  page          String   @unique
+  titleEn       String
+  titleVi       String
   descriptionEn String
   descriptionVi String
-  keywords    String[]
-  ogImage     String?
-  updatedAt   DateTime @updatedAt
+  keywords      String[]
+  ogImage       String?
+  updatedAt     DateTime @updatedAt
 }
 
 model ThemeConfig {
@@ -86,49 +87,56 @@ model ThemeConfig {
 
 model ChatSession {
   id        String        @id @default(uuid())
-  messages  ChatMessage[]
   createdAt DateTime      @default(now())
+  messages  ChatMessage[]
 }
 
 model ChatMessage {
   id        String      @id @default(uuid())
   sessionId String
-  session   ChatSession @relation(fields: [sessionId], references: [id])
-  role      String      // 'user' | 'assistant'
+  role      String
   content   String
   createdAt DateTime    @default(now())
+  session   ChatSession @relation(fields: [sessionId], references: [id])
+
+  @@index([sessionId])
 }
 
 model AIPrompt {
   id        String   @id @default(uuid())
-  content   String   @db.Text
+  content   String
   updatedAt DateTime @updatedAt
-}
-
-model ActivityLog {
-  id        String   @id @default(uuid())
-  action    String   // e.g., "CREATE_PROJECT", "UPDATE_BLOG", "SAVE_PROMPT"
-  target    String   // Name or ID of the item
-  details   String?  // Optional JSON string or description
-  createdAt DateTime @default(now())
 }
 
 model ShortLink {
   id          String          @id @default(uuid())
-  shortCode   String          @unique
   originalUrl String
+  shortCode   String          @unique
   clicks      Int             @default(0)
-  analytics   LinkAnalytics[]
   createdAt   DateTime        @default(now())
   updatedAt   DateTime        @updatedAt
+  analytics   LinkAnalytics[]
+
+  @@index([shortCode])
 }
 
 model LinkAnalytics {
-  id          String    @id @default(uuid())
-  linkId      String
-  link        ShortLink @relation(fields: [linkId], references: [id], onDelete: Cascade)
-  userAgent   String?
-  ipHash      String?   // Hashed for privacy
-  country     String?
-  createdAt   DateTime  @default(now())
+  id        String    @id @default(uuid())
+  linkId    String
+  userAgent String?
+  ipHash    String?
+  createdAt DateTime  @default(now())
+  link      ShortLink @relation(fields: [linkId], references: [id])
+
+  @@index([linkId])
+}
+
+model ActivityLog {
+  id        String   @id @default(uuid())
+  action    String
+  target    String
+  details   String?
+  createdAt DateTime @default(now())
+
+  @@index([createdAt])
 }

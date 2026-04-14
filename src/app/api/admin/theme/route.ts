@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server'
 import prisma from '@/lib/prisma'
+import { revalidatePath } from 'next/cache'
 
 export async function GET() {
   try {
@@ -40,6 +41,8 @@ export async function PUT(request: Request) {
         data: { primaryColor, radius }
       })
     }
+
+    revalidatePath('/', 'layout') // Revalidate everything to apply theme
 
     return NextResponse.json(updatedTheme)
   } catch (error) {
